@@ -18,6 +18,7 @@ const FILTER_OPTIONS: Array<{ value: FilterType; label: string }> = [
 ];
 
 const STATUS_CLASS: Record<LocalTaskStatus, string> = {
+  draft: "cyber-chip muted",
   succeeded: "cyber-chip ok",
   failed: "cyber-chip fail",
   expired: "cyber-chip ok",
