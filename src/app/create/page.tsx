@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { ImageUploadZone } from "@/components/image-upload-zone";
 import { ACTION_LABELS, CUSTOM_PROMPT_MAX_LENGTH } from "@/lib/constants";
 import { usePetEvent } from "@/lib/pet/pet-events";
@@ -41,7 +41,7 @@ function getImageDimensions(dataUrl: string): Promise<{ width: number; height: n
   });
 }
 
-export default function CreatePage() {
+function CreatePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const {
@@ -536,5 +536,26 @@ export default function CreatePage() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CreatePageLoading() {
+  return (
+    <section className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_1fr] fade-in-up">
+      <div className="cute-panel space-y-4">
+        <div className="flex items-center justify-between gap-3">
+          <p className="pixel-title text-xs">参考图上传</p>
+        </div>
+        <div className="h-48 rounded-lg border-2 border-dashed border-border-dim bg-[#fafafa]" />
+      </div>
+    </section>
+  );
+}
+
+export default function CreatePage() {
+  return (
+    <Suspense fallback={<CreatePageLoading />}>
+      <CreatePageContent />
+    </Suspense>
   );
 }
