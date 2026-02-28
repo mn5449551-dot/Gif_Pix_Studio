@@ -1414,6 +1414,17 @@ input[type="range"]::-moz-range-thumb {
   opacity: 1;
 }
 
+/* ── Hero Title Responsive Typography ── */
+.hero-title-top {
+  text-shadow: 4px 4px 0 var(--shadow), 8px 8px 0 var(--mint-light);
+  -webkit-text-stroke: 2px var(--border-dim);
+}
+
+.hero-title-bottom {
+  text-shadow: 3px 3px 0 var(--secondary-light), 6px 6px 0 var(--border-dim);
+  -webkit-text-stroke: 2px var(--border-dim);
+}
+
 /* ── Animate Pulse (override for kawaii feel) ── */
 .animate-pulse {
   animation: pixelPulse 1.6s ease-in-out infinite;
@@ -1422,6 +1433,17 @@ input[type="range"]::-moz-range-thumb {
 /* ── Responsive ── */
 
 @media (max-width: 768px) {
+
+  /* Scale down massive shadows so they don't blur smaller text */
+  .hero-title-top {
+    text-shadow: 2px 2px 0 var(--shadow), 4px 4px 0 var(--mint-light);
+    -webkit-text-stroke: 1px var(--border-dim);
+  }
+
+  .hero-title-bottom {
+    text-shadow: 2px 2px 0 var(--secondary-light), 4px 4px 0 var(--border-dim);
+    -webkit-text-stroke: 1px var(--border-dim);
+  }
 
   /* Keep heavy arcade styling even on mobile */
   .cute-panel,

@@ -84,10 +84,10 @@ export default function Home() {
 
             {/* Title - Asymmetric and Massive */}
             <h1 className="font-title font-black leading-[1] tracking-tighter uppercase relative z-20">
-              <span className="block text-5xl md:text-[5.5rem] lg:text-[7rem] text-primary-color" style={{ textShadow: '4px 4px 0 var(--shadow), 8px 8px 0 var(--mint-light)', WebkitTextStroke: '2px var(--border-dim)' }}>
+              <span className="hero-title-top block text-5xl md:text-[5.5rem] lg:text-[7rem] text-primary-color">
                 像素
               </span>
-              <span className="block text-4xl md:text-[4.5rem] lg:text-[6rem] text-text-primary mt-1 md:mt-2 ml-4 md:ml-12" style={{ textShadow: '3px 3px 0 var(--secondary-light), 6px 6px 0 var(--border-dim)', WebkitTextStroke: '2px var(--border-dim)' }}>
+              <span className="hero-title-bottom block text-4xl md:text-[4.5rem] lg:text-[6rem] text-text-primary mt-1 md:mt-2 ml-4 md:ml-12">
                 魔法工坊
               </span>
             </h1>
