@@ -130,7 +130,7 @@ export default function SettingsPage() {
           <label>
             <span className="pixel-label">API 接口地址</span>
             <select
-              className="terminal-input"
+              className="terminal-input bg-white"
               value={settings.apiHost}
               onChange={(event) =>
                 updateField(
@@ -147,7 +147,7 @@ export default function SettingsPage() {
           <label>
             <span className="pixel-label">模型</span>
             <input
-              className="terminal-input"
+              className="terminal-input bg-white"
               value={settings.defaultModel}
               placeholder="例如: nano-banana-pro"
               onChange={(event) => updateField("defaultModel", event.target.value)}
@@ -314,14 +314,14 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      <div className="cute-panel border-[#e05577] bg-[#fff4f7]">
-        <p className="pixel-title text-xs text-danger">危险操作区</p>
-        <p className="mt-2 text-base text-text-muted">
+      <div className="cute-panel border-[#e05577] bg-[#fff4f7] border-4 shadow-[8px_8px_0_var(--primary)]" style={{ backgroundImage: "repeating-linear-gradient(45deg, rgba(255, 77, 141, 0.05) 0, rgba(255, 77, 141, 0.05) 10px, transparent 10px, transparent 20px)" }}>
+        <p className="pixel-title text-xl text-primary font-black uppercase tracking-widest bg-white inline-block px-2 py-1 border-3 border-border-dim shadow-[3px_3px_0_var(--shadow)]">/// DANGER ZONE ///</p>
+        <p className="mt-4 text-base text-text-muted font-bold bg-white p-2 border-l-4 border-danger rounded-sm">
           清空后将删除本地 API Key、历史记录和缓存资源，且不可恢复。
         </p>
-        <div className="mt-4">
-          <button className="arcade-button danger" onClick={() => void handleClearAll()}>
-            清空全部数据
+        <div className="mt-6">
+          <button className="arcade-button danger w-full text-lg py-3" onClick={() => void handleClearAll()}>
+            清空全部数据 RESET
           </button>
         </div>
       </div>

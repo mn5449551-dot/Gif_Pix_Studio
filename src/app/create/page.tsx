@@ -371,9 +371,8 @@ function CreatePageContent() {
                   <div key={item.key} className="flex items-center justify-between gap-2 rounded border border-border-dim/20 bg-white px-2 py-1.5">
                     <span className="text-sm text-text-primary">{item.label}</span>
                     <span
-                      className={`cyber-chip text-[10px] ${
-                        item.level === "ok" ? "ok" : item.level === "warn" ? "fail" : "muted"
-                      }`}
+                      className={`cyber-chip text-[10px] ${item.level === "ok" ? "ok" : item.level === "warn" ? "fail" : "muted"
+                        }`}
                     >
                       {item.text}
                     </span>
@@ -396,20 +395,19 @@ function CreatePageContent() {
       </div>
 
       <div className={`space-y-6 transition-opacity ${generating ? "pointer-events-none opacity-70" : ""}`}>
-        <div className="cute-panel space-y-5">
-          <p className="pixel-title text-xs">动作与描述</p>
+        <div className="cute-panel bg-yellow space-y-5 border-4 shadow-[12px_12px_0_var(--shadow)]">
+          <p className="pixel-title text-sm">动作与描述</p>
           {ACTION_GROUPS.map((group) => (
             <div key={group.title}>
-              <p className="pixel-label mb-2">{group.title}</p>
-              <div className="grid grid-cols-3 gap-2">
+              <p className="pixel-label mb-2 text-text-primary">{group.title}</p>
+              <div className="grid grid-cols-3 gap-3">
                 {group.actions.map((action) => {
                   const selected = actionId === action;
                   return (
                     <button
                       key={action}
-                      className={`arcade-button py-3 text-center text-xs w-full transition ${
-                        selected ? "-translate-y-0.5" : "secondary"
-                      }`}
+                      className={`arcade-button py-3 text-center text-xs w-full transition ${selected ? "bg-primary text-white border-b-4 border-2" : "secondary"
+                        }`}
                       onClick={() => {
                         setActionId(action);
                         emitPetEvent("action:preview", { actionId: action });
@@ -423,15 +421,13 @@ function CreatePageContent() {
             </div>
           ))}
 
-          <div>
-            <p className="pixel-label mb-2">自定义动作</p>
+          <div className="pt-2 border-t-4 border-dashed border-border-dim/20">
+            <p className="pixel-label mb-2 text-text-primary">自定义动作</p>
             <button
-              className={`arcade-button py-3 text-center text-xs w-full transition ${
-                actionId === "custom" ? "-translate-y-0.5" : "secondary"
-              }`}
+              className={`arcade-button py-3 text-center text-xs w-full transition ${actionId === "custom" ? "bg-primary text-white border-b-4 border-2" : "secondary"
+                }`}
               onClick={() => {
                 setActionId("custom");
-                // 移动端展开后跳转到输入框
                 if (window.innerWidth < 1024 && customPromptRef.current) {
                   setTimeout(() => {
                     customPromptRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -481,14 +477,14 @@ function CreatePageContent() {
           </label>
         </div>
 
-        <div className="cute-panel space-y-4">
+        <div className="cute-panel bg-secondary-light border-4 shadow-[8px_8px_0_var(--shadow)] space-y-4">
           <button
-            className="arcade-button lime w-full py-4 text-base"
+            className="arcade-button w-full py-4 text-xl tracking-wider font-black uppercase bg-primary text-white border-b-8 active:border-b-4 hover:brightness-110"
             disabled={!canGenerate}
             title={generateDisabledReason || "开始生成"}
             onClick={() => void handleGenerate()}
           >
-            {generating ? "生成中..." : "生成GIF图"}
+            {generating ? "生成中 P1 START..." : "开始生成 START"}
           </button>
 
           <div className={diagnosticClass}>
@@ -542,11 +538,11 @@ function CreatePageContent() {
 function CreatePageLoading() {
   return (
     <section className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_1fr] fade-in-up">
-      <div className="cute-panel space-y-4">
+      <div className="cute-panel border-4 space-y-4">
         <div className="flex items-center justify-between gap-3">
-          <p className="pixel-title text-xs">参考图上传</p>
+          <p className="pixel-title text-sm">参考图上传</p>
         </div>
-        <div className="h-48 rounded-lg border-2 border-dashed border-border-dim bg-[#fafafa]" />
+        <div className="h-64 rounded-lg border-4 border-dashed border-border-dim bg-[#fafafa]" />
       </div>
     </section>
   );

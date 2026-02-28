@@ -136,7 +136,7 @@ export default function Home() {
             </div>
 
             <div className="absolute -top-8 -left-6 z-20 hidden md:block transition-transform duration-200 hover:-translate-y-2">
-              <div className="cyber-chip bg-yellow border-3 shadow-[4px_4px_0_var(--shadow)] -rotate-6 text-sm px-4 py-2 uppercase">
+              <div className="cyber-chip bg-yellow border-3 shadow-[4px_4px_0_var(--shadow)] -rotate-6 text-sm px-4 py-2 uppercase text-text-primary">
                 Ready Player 1
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function Home() {
         </div>
 
         {/* ── Section Divider ── */}
-        <div className="w-full h-8 mb-16 px-4">
+        <div className="w-full h-8 mt-10 mb-20 px-4">
           <div className="w-full h-full" style={{
             backgroundImage: "repeating-linear-gradient(45deg, var(--shadow) 0, var(--shadow) 8px, transparent 8px, transparent 16px)",
             opacity: 0.3
@@ -252,7 +252,7 @@ export default function Home() {
         {/* ── Features ── */}
         <div className="space-y-10 relative">
           <div className="text-center absolute -top-8 left-1/2 -translate-x-1/2 z-10 w-full px-4">
-            <span className="inline-block bg-text-primary text-white text-3xl font-black uppercase px-6 py-3 border-4 border-white shadow-[6px_6px_0_var(--primary)] -rotate-2">
+            <span className="inline-block bg-text-primary text-white text-3xl font-black uppercase px-6 py-3 border-4 border-text-primary shadow-[6px_6px_0_var(--primary)] -rotate-2">
               POWER-UPS
             </span>
           </div>
