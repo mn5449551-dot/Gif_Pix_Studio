@@ -60,8 +60,8 @@ const FEATURES = [
 
 export default function Home() {
   return (
-    <section className="relative overflow-hidden fade-in-up">
-      <div className="relative z-10 mx-auto max-w-6xl space-y-14 py-4 md:py-8">
+    <section className="relative overflow-x-hidden md:overflow-visible fade-in-up">
+      <div className="relative z-10 mx-auto max-w-6xl space-y-10 md:space-y-14 py-4 md:py-8">
 
         {/* ── Hero ── */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20 pt-8 pb-16">
@@ -83,19 +83,19 @@ export default function Home() {
             </div>
 
             {/* Title - Asymmetric and Massive */}
-            <h1 className="font-title font-black leading-[0.9] tracking-tighter uppercase relative z-20">
-              <span className="block text-6xl md:text-[5.5rem] lg:text-[7rem] text-primary-color" style={{ textShadow: '6px 6px 0 var(--shadow), 12px 12px 0 var(--mint-light)', WebkitTextStroke: '3px var(--border-dim)' }}>
+            <h1 className="font-title font-black leading-[1] tracking-tighter uppercase relative z-20">
+              <span className="block text-5xl md:text-[5.5rem] lg:text-[7rem] text-primary-color" style={{ textShadow: '4px 4px 0 var(--shadow), 8px 8px 0 var(--mint-light)', WebkitTextStroke: '2px var(--border-dim)' }}>
                 像素
               </span>
-              <span className="block text-5xl md:text-[4.5rem] lg:text-[6rem] text-text-primary mt-2 ml-0 md:ml-12" style={{ textShadow: '5px 5px 0 var(--secondary-light), 10px 10px 0 var(--border-dim)', WebkitTextStroke: '2px var(--border-dim)' }}>
+              <span className="block text-4xl md:text-[4.5rem] lg:text-[6rem] text-text-primary mt-1 md:mt-2 ml-4 md:ml-12" style={{ textShadow: '3px 3px 0 var(--secondary-light), 6px 6px 0 var(--border-dim)', WebkitTextStroke: '2px var(--border-dim)' }}>
                 魔法工坊
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="mx-auto max-w-lg text-lg font-bold leading-relaxed md:mx-0 md:text-xl text-text-muted mt-8 p-4 bg-white border-3 border-border-dim rounded-md shadow-[4px_4px_0_var(--primary-light)] transform -rotate-1 relative lg:ml-8">
+            <p className="mx-auto max-w-lg text-base md:text-xl font-bold leading-relaxed text-text-muted mt-6 md:mt-8 p-3 md:p-4 bg-white border-3 border-border-dim rounded-md shadow-[4px_4px_0_var(--primary-light)] transform md:-rotate-1 relative lg:ml-8">
               上传一张图，选择动作模板，快速得到可直接使用的像素动态表情包。
-              <span className="absolute -bottom-3 -right-3 h-6 w-6 bg-secondary border-2 border-border-dim rounded-full shadow-pixel-sm"></span>
+              <span className="absolute -bottom-3 -right-2 h-6 w-6 bg-secondary border-2 border-border-dim rounded-full shadow-pixel-sm"></span>
             </p>
 
             {/* CTA Buttons */}
@@ -152,12 +152,12 @@ export default function Home() {
         </div>
 
         {/* ── How It Works ── */}
-        <div id="how" className="space-y-10 relative">
-          <div className="text-center bg-white border-4 border-border-dim shadow-[8px_8px_0_var(--primary)] max-w-xl mx-auto rounded-md py-6 transform rotate-1">
-            <p className="pixel-title text-base md:text-lg text-primary-color tracking-[0.2em]">
+        <div id="how" className="space-y-8 md:space-y-10 relative">
+          <div className="text-center bg-white border-4 border-border-dim shadow-[6px_6px_0_var(--primary)] max-w-[90%] md:max-w-xl mx-auto rounded-md py-4 md:py-6 transform md:rotate-1">
+            <p className="pixel-title text-sm md:text-lg text-primary-color tracking-[0.2em]">
               /// SELECT STAGE ///
             </p>
-            <h2 className="mt-2 text-3xl font-black text-text-primary uppercase" style={{ WebkitTextStroke: '1px var(--shadow)' }}>
+            <h2 className="mt-1 md:mt-2 text-2xl md:text-3xl font-black text-text-primary uppercase" style={{ WebkitTextStroke: '1px var(--shadow)' }}>
               三步完成制作
             </h2>
           </div>
@@ -195,17 +195,17 @@ export default function Home() {
         </div>
 
         {/* ── Showcase ── */}
-        <div id="showcase" className="space-y-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4 border-b-4 border-border-dim pb-4">
+        <div id="showcase" className="space-y-10 px-2 md:px-0">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4 border-b-4 border-border-dim pb-4">
             <div>
-              <p className="pixel-title text-base sm:text-lg text-secondary tracking-[0.2em]">
+              <p className="pixel-title text-sm sm:text-lg text-secondary tracking-[0.2em]">
                 /// CHARACTER SELECT ///
               </p>
-              <h2 className="mt-2 text-4xl sm:text-5xl font-black text-text-primary uppercase" style={{ textShadow: '4px 4px 0 var(--secondary-light)', WebkitTextStroke: '2px var(--shadow)' }}>
+              <h2 className="mt-1 md:mt-2 text-3xl sm:text-5xl font-black text-text-primary uppercase" style={{ textShadow: '3px 3px 0 var(--secondary-light)', WebkitTextStroke: '2px var(--shadow)' }}>
                 案例展示
               </h2>
             </div>
-            <div className="cyber-chip bg-mint text-text-primary border-4 shadow-pixel font-black text-lg py-2">
+            <div className="cyber-chip bg-mint text-text-primary border-4 shadow-pixel font-black text-sm md:text-lg py-1 md:py-2">
               PLAYER ROSTER
             </div>
           </div>
