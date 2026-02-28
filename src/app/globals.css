@@ -2,34 +2,35 @@
 
 :root {
   /* ── Backgrounds ── */
-  --bg:              #FEFCF6;
+  --bg:              #FEFBF3; /* Slightly warmer paper texture base */
   --bg-soft:         #FFF3E8;
   --bg-panel:        #FFFFFF;
   --bg-muted:        #FFE0EE;
 
   /* ── Core Palette ── */
-  --primary:         #FF6B9D;
+  --primary:         #FF4785; /* Punchier electric pink */
   --primary-light:   #FFD6E8;
-  --secondary:       #7EC8F5;
-  --secondary-light: #D6F0FF;
-  --mint:            #A8EFC6;
-  --mint-light:      #D6FAE8;
-  --yellow:          #FFE566;
-  --lilac:           #C9B8FF;
-  --peach:           #FFB5A0;
+  --secondary:       #55B4F4; /* Brighter sky blue */
+  --secondary-light: #C2E8FF;
+  --mint:            #77ECAE; /* More vibrant mint */
+  --mint-light:      #C8FCE0;
+  --yellow:          #FFD93D; /* Stronger yellow */
+  --lilac:           #B095FF;
+  --peach:           #FFA488;
 
   /* ── Semantic Aliases (backward compat) ── */
   --primary-strong:  #FFD6E8;
-  --warm:            #FFE566;
-  --danger:          #E05577;
+  --warm:            #FFD93D;
+  --danger:          #F03E65;
 
   /* ── Text ── */
-  --text-primary:    #2D1B4E;
-  --text-muted:      #7B6A9A;
+  /* Using near-black and high contrast purples to keep it crisp */
+  --text-primary:    #1A0F2E;
+  --text-muted:      #6A578A;
 
   /* ── Borders & Shadows ── */
-  --border-dim:      #2D1B4E;
-  --shadow:          #2D1B4E;
+  --border-dim:      #1A0F2E;
+  --shadow:          #1A0F2E;
 
   /* ── Layout Tokens ── */
   --space-1:         0.25rem;
@@ -38,12 +39,16 @@
   --space-4:         1rem;
   --space-5:         1.25rem;
   --space-6:         1.5rem;
-  --radius-sm:       6px;
-  --radius-md:       10px;
-  --radius-lg:       14px;
-  --elevation-1:     2px 2px 0 var(--shadow);
-  --elevation-2:     3px 3px 0 var(--shadow);
-  --elevation-3:     4px 4px 0 var(--shadow);
+  
+  /* Harder corners for Brutalist feel */
+  --radius-sm:       4px;
+  --radius-md:       8px;
+  --radius-lg:       12px;
+  
+  /* Thicker offset shadows */
+  --elevation-1:     3px 3px 0 var(--shadow);
+  --elevation-2:     5px 5px 0 var(--shadow);
+  --elevation-3:     7px 7px 0 var(--shadow);
 
   /* ── Fonts ── */
   --font-title: "Avenir Next Condensed", "Trebuchet MS", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -87,12 +92,11 @@ html {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 107, 157, 0.05) 1.5px,
-    transparent 1.5px
-  );
-  background-size: 22px 22px;
+  /* Adding a subtle noise grain over the dots for a paper texture feel */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
+    radial-gradient(circle, rgba(255, 71, 133, 0.08) 2px, transparent 2px);
+  background-size: 150px 150px, 24px 24px;
   pointer-events: none;
 }
 
@@ -107,18 +111,18 @@ html {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-primary);
-  text-shadow: 2px 2px 0 var(--primary-light);
+  text-shadow: 3px 3px 0 var(--primary-light);
 }
 
 .hero-title-cute {
   font-family: var(--font-title);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--primary);
-  -webkit-text-stroke: 1px var(--border-dim);
+  -webkit-text-stroke: 2px var(--border-dim);
   text-shadow:
-    2px 2px 0 var(--primary-light),
-    4px 4px 0 var(--border-dim);
+    3px 3px 0 var(--primary-light),
+    6px 6px 0 var(--border-dim);
 }
 
 .pixel-label {
@@ -172,19 +176,19 @@ html {
 
 img[data-asset-image="true"] {
   background: linear-gradient(180deg, #fff7ef, #ffe0ee);
-  border: 2px solid var(--border-dim);
+  border: 3px solid var(--border-dim); /* Thicker border */
 }
 
 .asset-fallback {
   display: inline-block;
   background:
-    linear-gradient(45deg, rgba(255, 107, 157, 0.1) 25%, transparent 25%) -4px 0 / 8px 8px,
-    linear-gradient(-45deg, rgba(255, 107, 157, 0.1) 25%, transparent 25%) -4px 0 / 8px 8px,
-    linear-gradient(45deg, transparent 75%, rgba(255, 107, 157, 0.1) 75%) -4px 0 / 8px 8px,
-    linear-gradient(-45deg, transparent 75%, rgba(255, 107, 157, 0.1) 75%) -4px 0 / 8px 8px,
+    linear-gradient(45deg, rgba(255, 71, 133, 0.15) 25%, transparent 25%) -4px 0 / 8px 8px,
+    linear-gradient(-45deg, rgba(255, 71, 133, 0.15) 25%, transparent 25%) -4px 0 / 8px 8px,
+    linear-gradient(45deg, transparent 75%, rgba(255, 71, 133, 0.15) 75%) -4px 0 / 8px 8px,
+    linear-gradient(-45deg, transparent 75%, rgba(255, 71, 133, 0.15) 75%) -4px 0 / 8px 8px,
     #ffe8f0;
-  border: 2px solid var(--border-dim);
-  box-shadow: 2px 2px 0 var(--shadow);
+  border: 3px solid var(--border-dim);
+  box-shadow: 3px 3px 0 var(--shadow);
 }
 
 /* Pet dock - override global asset image background */
@@ -202,7 +206,7 @@ img[data-asset-image="true"] {
 .cute-panel,
 .cyber-panel {
   position: relative;
-  border: 2px solid var(--border-dim);
+  border: 3px solid var(--border-dim); /* Thicker border */
   border-radius: var(--radius-md);
   background: var(--bg-panel);
   box-shadow: var(--elevation-3);
@@ -217,38 +221,40 @@ img[data-asset-image="true"] {
 /* ── Buttons ── */
 
 .arcade-button {
-  border: 2px solid var(--border-dim);
+  border: 3px solid var(--border-dim); /* Thicker border */
   outline: none;
   cursor: pointer;
   border-radius: var(--radius-sm);
   background: var(--primary);
   color: var(--text-primary);
   font-family: var(--font-title);
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 800;
   line-height: 1.4;
   text-transform: uppercase;
-  padding: 0.65rem 1rem;
-  min-height: 44px;
+  padding: 0.65rem 1.2rem;
+  min-height: 48px;
   box-shadow: var(--elevation-2);
   transition:
-    transform 0.08s steps(2),
-    box-shadow 0.08s steps(2);
+    transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .arcade-button:hover:not(:disabled) {
-  transform: translate(-1px, -1px);
+  transform: translate(-3px, -3px);
   box-shadow: var(--elevation-3);
+  filter: saturate(1.1) brightness(1.05);
 }
 
 .arcade-button:active:not(:disabled) {
-  transform: translate(4px, 4px);
+  transform: translate(5px, 5px);
   box-shadow: 0 0 0 var(--shadow);
 }
 
 .arcade-button:disabled {
-  opacity: 0.45;
+  opacity: 0.5;
   cursor: not-allowed;
-  filter: grayscale(30%);
+  filter: grayscale(40%);
 }
 
 .arcade-button:focus-visible,
@@ -257,8 +263,8 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid rgba(255, 107, 157, 0.6);
-  outline-offset: 2px;
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .arcade-button.secondary {
@@ -294,32 +300,34 @@ textarea:focus-visible {
   justify-content: center;
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 15px;
-  padding: 0.85rem 1.8rem;
-  min-height: 48px;
+  font-size: 16px;
+  padding: 0.9rem 2rem;
+  min-height: 52px;
   border: 3px solid var(--border-dim);
-  border-radius: 6px;
-  box-shadow: 5px 5px 0 var(--shadow);
+  border-radius: var(--radius-md);
+  box-shadow: 6px 6px 0 var(--shadow);
   text-decoration: none;
   transition:
-    transform 0.08s steps(2),
-    box-shadow 0.08s steps(2);
+    transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.12s ease;
   cursor: pointer;
 }
 
 .btn-hero:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--shadow);
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--shadow);
+  filter: brightness(1.05);
 }
 
 .btn-hero:active {
-  transform: translate(5px, 5px);
+  transform: translate(6px, 6px);
   box-shadow: 0 0 0 var(--shadow);
 }
 
 .btn-hero-pink  { background: var(--primary);   color: #fff; }
 .btn-hero-blue  { background: var(--secondary);  color: var(--text-primary); }
-.btn-hero-white { background: #fff;              color: var(--text-primary); }
+.btn-hero-white { background: var(--bg-panel);   color: var(--text-primary); }
 
 /* ── Inputs ── */
 
@@ -361,14 +369,14 @@ select.terminal-input {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  border: 2px solid var(--border-dim);
+  border: 3px solid var(--border-dim); /* Thicker border */
   background: var(--primary-light);
   color: var(--text-primary);
-  padding: 0.2rem 0.65rem;
-  font-size: 12px;
+  padding: 0.25rem 0.8rem;
+  font-size: 13px;
   font-family: var(--font-body);
-  font-weight: 700;
-  box-shadow: 2px 2px 0 var(--shadow);
+  font-weight: 800;
+  box-shadow: 3px 3px 0 var(--shadow);
 }
 
 .cyber-chip.ok    { background: var(--mint-light); }
@@ -537,11 +545,11 @@ input[type="range"]::-moz-range-thumb {
   flex-direction: column;
   gap: 0.85rem;
   text-align: left;
-  padding: 1.05rem 1.05rem 1rem;
+  padding: 1.25rem 1.25rem 1.2rem;
   border-width: 3px;
   transition:
-    transform 0.1s steps(2),
-    box-shadow 0.1s steps(2),
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
     filter 0.15s ease;
 }
 
@@ -550,8 +558,8 @@ input[type="range"]::-moz-range-thumb {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.46), transparent 35%),
-    linear-gradient(140deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 64%);
+    radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.6), transparent 45%),
+    linear-gradient(140deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 64%);
   pointer-events: none;
 }
 
@@ -561,22 +569,22 @@ input[type="range"]::-moz-range-thumb {
   left: 0;
   top: 0;
   width: 100%;
-  height: 7px;
+  height: 9px;
   background: repeating-linear-gradient(
     90deg,
-    rgba(45, 27, 78, 0.88) 0,
-    rgba(45, 27, 78, 0.88) 12px,
-    rgba(255, 255, 255, 0.26) 12px,
-    rgba(255, 255, 255, 0.26) 16px
+    rgba(26, 15, 46, 0.9) 0,
+    rgba(26, 15, 46, 0.9) 16px,
+    rgba(255, 255, 255, 0.3) 16px,
+    rgba(255, 255, 255, 0.3) 22px
   );
-  opacity: 0.58;
+  opacity: 0.8;
   pointer-events: none;
 }
 
 .feature-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--shadow);
-  filter: saturate(1.06);
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--shadow);
+  filter: saturate(1.1) brightness(1.02);
 }
 
 .feature-card-head {
@@ -616,11 +624,12 @@ input[type="range"]::-moz-range-thumb {
 .feature-title {
   position: relative;
   z-index: 1;
-  margin: 0.1rem 0 0;
-  font-size: clamp(1.6rem, 2.25vw, 2.05rem);
+  margin: 0.2rem 0 0;
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   line-height: 1.1;
   font-weight: 900;
   letter-spacing: 0.01em;
+  -webkit-text-stroke: 1px rgba(26, 15, 46, 0.1);
 }
 
 .feature-desc {
@@ -656,12 +665,12 @@ input[type="range"]::-moz-range-thumb {
   flex-direction: column;
   gap: 0.85rem;
   text-align: left;
-  padding: 1.05rem 1.05rem 1rem;
+  padding: 1.25rem 1.25rem 1.2rem;
   border-width: 3px;
   background: linear-gradient(180deg, #fffefa 0%, #fffaf2 100%);
   transition:
-    transform 0.1s steps(2),
-    box-shadow 0.1s steps(2),
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
     filter 0.15s ease;
 }
 
@@ -670,8 +679,8 @@ input[type="range"]::-moz-range-thumb {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.44), transparent 36%),
-    linear-gradient(140deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 62%);
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.6), transparent 45%),
+    linear-gradient(140deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 62%);
   pointer-events: none;
 }
 
@@ -681,22 +690,22 @@ input[type="range"]::-moz-range-thumb {
   left: 0;
   top: 0;
   width: 100%;
-  height: 7px;
+  height: 9px;
   background: repeating-linear-gradient(
     90deg,
-    rgba(45, 27, 78, 0.8) 0,
-    rgba(45, 27, 78, 0.8) 11px,
-    rgba(255, 255, 255, 0.42) 11px,
-    rgba(255, 255, 255, 0.42) 15px
+    rgba(26, 15, 46, 0.9) 0,
+    rgba(26, 15, 46, 0.9) 16px,
+    rgba(255, 255, 255, 0.4) 16px,
+    rgba(255, 255, 255, 0.4) 22px
   );
-  opacity: 0.4;
+  opacity: 0.6;
   pointer-events: none;
 }
 
 .how-step-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--shadow);
-  filter: saturate(1.04);
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--shadow);
+  filter: saturate(1.05);
 }
 
 .how-step-head {
@@ -735,11 +744,12 @@ input[type="range"]::-moz-range-thumb {
 .how-step-title {
   position: relative;
   z-index: 1;
-  margin: 0.1rem 0 0;
-  font-size: clamp(1.55rem, 2vw, 1.9rem);
+  margin: 0.2rem 0 0;
+  font-size: clamp(1.7rem, 2.2vw, 2rem);
   line-height: 1.12;
   font-weight: 900;
   letter-spacing: 0.01em;
+  -webkit-text-stroke: 1px rgba(26, 15, 46, 0.1);
 }
 
 .how-step-desc {
@@ -753,15 +763,15 @@ input[type="range"]::-moz-range-thumb {
 
 .case-card {
   transition:
-    transform 0.1s steps(2),
-    box-shadow 0.1s steps(2),
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
     filter 0.15s;
 }
 
 .case-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--shadow);
-  filter: saturate(1.1);
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--shadow);
+  filter: saturate(1.15) brightness(1.02);
 }
 
 .showcase-card-media {
@@ -853,19 +863,26 @@ input[type="range"]::-moz-range-thumb {
 .pixel-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  border: 2px solid var(--border-dim);
+  gap: 0.6rem;
+  border: 3px solid var(--border-dim);
   border-radius: 999px;
-  background: var(--primary-light);
-  padding: 0.35rem 1rem;
-  box-shadow: 2px 2px 0 var(--shadow);
+  background: var(--yellow); /* Highlighted yellow for pop */
+  padding: 0.4rem 1.2rem;
+  box-shadow: 4px 4px 0 var(--shadow);
+  transform: rotate(-2deg);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pixel-badge:hover {
+  transform: rotate(1deg) scale(1.05);
 }
 
 .pixel-badge-text {
   font-family: var(--font-title);
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--text-primary);
 }
 

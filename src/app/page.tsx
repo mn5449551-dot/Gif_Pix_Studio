@@ -68,32 +68,34 @@ export default function Home() {
           <div className="space-y-6 text-center md:text-left">
 
             {/* Badge */}
-            <span className="pixel-badge">
-              <AssetImage
-                src="/assets/icons/feature-magic.png"
-                alt="Workshop Badge Icon"
-                className="h-3 w-3 pixelated"
-                fallbackClassName="asset-fallback-sm"
-              />
-              <span className="pixel-badge-text">
-                Pixel Gif Workshop
+            <div className="inline-block hover:z-10 relative">
+              <span className="pixel-badge">
+                <AssetImage
+                  src="/assets/icons/feature-flash.png"
+                  alt="Workshop Badge Icon"
+                  className="h-4 w-4 pixelated"
+                  fallbackClassName="asset-fallback-sm"
+                />
+                <span className="pixel-badge-text">
+                  Pixel Gif Workshop
+                </span>
               </span>
-            </span>
+            </div>
 
             {/* Title */}
-            <h1 className="text-5xl font-black leading-tight tracking-tight md:text-7xl text-text-primary">
-              <span className="text-primary-color">像素</span>
+            <h1 className="text-6xl font-black leading-[1.1] tracking-tighter md:text-[5.5rem] lg:text-8xl text-text-primary uppercase" style={{ textShadow: '4px 4px 0 var(--primary-light), 8px 8px 0 var(--border-dim)', WebkitTextStroke: '2px var(--border-dim)' }}>
+              <span className="text-primary-color" style={{ textShadow: '4px 4px 0 #FFD6E8, 8px 8px 0 var(--border-dim)' }}>像素</span>
               <br className="hidden md:block" />
               魔法工坊
             </h1>
 
             {/* Subtitle */}
-            <p className="mx-auto max-w-xl text-base leading-relaxed md:mx-0 md:text-lg text-text-muted">
+            <p className="mx-auto max-w-xl text-lg font-bold leading-relaxed md:mx-0 md:text-xl text-text-muted mt-8">
               上传一张图，选择动作模板，快速得到可直接使用的像素动态表情包。
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap justify-center gap-3 md:justify-start">
+            <div className="flex flex-wrap justify-center gap-4 md:justify-start pt-4">
               <Link className="btn-hero btn-hero-pink" href="/create">
                 立即开始
               </Link>
@@ -101,38 +103,38 @@ export default function Home() {
                 查看案例
               </a>
             </div>
-            <p className="text-sm text-text-muted">
+            <p className="text-sm font-bold text-text-muted mt-4">
               首次使用可先前往
               {" "}
-              <Link href="/settings" className="text-primary-color underline underline-offset-2">
+              <Link href="/settings" className="text-primary-color underline decoration-2 underline-offset-4 hover:bg-primary-light transition-colors px-1 rounded-sm">
                 配置入口
               </Link>
             </p>
 
             {/* Feature Tags */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-1 md:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-2 md:justify-start">
               {["像素模板", "GIF 导出"].map((tag) => (
-                <span key={tag} className="cyber-chip muted">{tag}</span>
+                <span key={tag} className="cyber-chip">{tag}</span>
               ))}
             </div>
           </div>
 
           {/* Hero Image */}
           <div className="relative mx-auto w-full max-w-[460px] hero-process-float">
-            <div className="cute-panel p-3">
+            <div className="cute-panel p-3 bg-yellow">
               <AssetImage
                 src="/assets/landing/hero/workbench-main.png"
                 alt="Workbench Main"
-                className="h-64 w-full object-cover pixelated md:h-72"
+                className="h-64 w-full object-cover pixelated md:h-72 border-2 border-border-dim rounded-sm"
                 fallbackClassName="asset-fallback-lg"
               />
             </div>
-            <div className="absolute -bottom-3 -right-3 hidden hero-float-card md:block">
-              <div className="cute-panel p-2 shadow-pixel">
+            <div className="absolute -bottom-6 -right-6 hidden hero-float-card md:block transition-transform hover:scale-110 hover:rotate-6">
+              <div className="cute-panel p-2 shadow-pixel bg-mint-light rotate-[-6deg]">
                 <AssetImage
                   src="/assets/landing/hero/gif-preview.png"
                   alt="GIF"
-                  className="h-16 w-16 object-cover pixelated"
+                  className="h-20 w-20 object-cover pixelated border-2 border-border-dim"
                   fallbackClassName="asset-fallback-md"
                 />
               </div>
@@ -141,34 +143,34 @@ export default function Home() {
         </div>
 
         {/* ── How It Works ── */}
-        <div id="how" className="space-y-6">
+        <div id="how" className="space-y-6 mt-12">
           <div className="text-center">
             <p className="pixel-title text-sm md:text-base text-primary-color">
               使用流程
             </p>
-            <p className="mt-3 text-base md:text-lg text-text-muted">
+            <p className="mt-3 text-lg font-bold md:text-xl text-text-muted">
               三步完成你的像素动态制作
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {HOW_STEPS.map((step) => (
-              <article key={step.id} className="cute-panel how-step-card">
-                <div className="how-step-head">
-                  <span className="how-step-pill">步骤 {step.id}</span>
-                  <span className="how-step-icon" style={{ background: step.accentBg }}>
+              <article key={step.id} className="how-step-card border-border-dim rounded-md">
+                <div className="how-step-head mb-4">
+                  <span className="how-step-pill border-2 border-border-dim shadow-[2px_2px_0_var(--shadow)]">步骤 {step.id}</span>
+                  <span className="how-step-icon border-2 border-border-dim shadow-[3px_3px_0_var(--shadow)]" style={{ background: step.accentBg }}>
                     <AssetImage
                       src={step.icon}
                       alt={step.title}
-                      className="h-7 w-7 pixelated"
+                      className="h-8 w-8 pixelated"
                       fallbackClassName="asset-fallback-sm"
                     />
                   </span>
                 </div>
-                <p className="how-step-title text-text-primary">
+                <p className="how-step-title text-text-primary text-2xl font-black">
                   {step.title}
                 </p>
-                <p className="how-step-desc text-text-muted">
+                <p className="how-step-desc text-text-muted text-base font-bold mt-2">
                   {step.description}
                 </p>
               </article>
@@ -177,34 +179,34 @@ export default function Home() {
         </div>
 
         {/* ── Showcase ── */}
-        <div id="showcase" className="space-y-6">
+        <div id="showcase" className="space-y-8 mt-16">
           <div className="text-center">
             <p className="pixel-title text-sm md:text-base text-primary-color">
               案例展示
             </p>
-            <p className="mt-3 text-base md:text-lg text-text-muted">
+            <p className="mt-3 text-lg font-bold md:text-xl text-text-muted">
               看看不同动作下的生成效果
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SHOWCASE_ITEMS.map((item) => (
-              <article key={item.id} className="cute-panel case-card p-3">
-                <div className="showcase-card-media rounded-md p-3 border-dim-2">
+              <article key={item.id} className="cute-panel case-card p-3 bg-white">
+                <div className="showcase-card-media rounded-sm p-3 border-3 border-border-dim shadow-inner bg-[url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%231a0f2e\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E')]">
                   <div className="mx-auto aspect-square w-full max-w-[360px]">
                     <AssetImage
                       src={item.image}
                       alt={item.title}
-                      className="h-full w-full object-contain pixelated"
+                      className="h-full w-full object-contain pixelated drop-shadow-[4px_4px_0_rgba(26,15,46,0.3)] transition-transform hover:scale-110"
                       fallbackClassName="asset-fallback-lg"
                     />
                   </div>
                 </div>
-                <div className="mt-3 flex items-center justify-between gap-3">
-                  <p className="text-base font-bold text-text-primary">
+                <div className="mt-4 flex items-center justify-between gap-3 px-1">
+                  <p className="text-lg font-black text-text-primary uppercase tracking-wide">
                     {item.title}
                   </p>
-                  <span className="cyber-chip muted">{item.tag}</span>
+                  <span className="cyber-chip bg-yellow text-text-primary">{item.tag}</span>
                 </div>
               </article>
             ))}
@@ -212,38 +214,38 @@ export default function Home() {
         </div>
 
         {/* ── Features ── */}
-        <div className="space-y-8">
+        <div className="space-y-8 mt-16">
           <div className="text-center">
             <p className="pixel-title text-sm md:text-base text-primary-color">
               核心能力
             </p>
-            <p className="mt-3 text-base md:text-lg text-text-muted">
+            <p className="mt-3 text-lg font-bold md:text-xl text-text-muted">
               不是重复流程，而是让创作更顺手的三个能力模块
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {FEATURES.map((feat) => (
               <article
                 key={feat.title}
-                className="cute-panel feature-card"
+                className="feature-card border-border-dim rounded-md"
                 style={{ background: feat.bg }}
               >
-                <div className="feature-card-head">
-                  <span className="feature-pill">{feat.tag}</span>
-                  <span className="feature-icon-shell">
+                <div className="feature-card-head mb-4">
+                  <span className="feature-pill border-2 border-border-dim shadow-[2px_2px_0_var(--shadow)] bg-white">{feat.tag}</span>
+                  <span className="feature-icon-shell border-2 border-border-dim shadow-[3px_3px_0_var(--shadow)] bg-white">
                     <AssetImage
                       src={feat.icon}
                       alt={feat.tag}
-                      className="h-6 w-6 pixelated"
+                      className="h-8 w-8 pixelated"
                       fallbackClassName="asset-fallback-sm"
                     />
                   </span>
                 </div>
-                <p className="feature-title text-text-primary">
+                <p className="feature-title text-text-primary text-2xl font-black">
                   {feat.title}
                 </p>
-                <p className="feature-desc text-text-muted">
+                <p className="feature-desc text-text-muted text-base font-bold mt-2">
                   {feat.desc}
                 </p>
               </article>
@@ -251,11 +253,11 @@ export default function Home() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="text-center pt-2">
-            <p className="mx-auto max-w-2xl text-base leading-relaxed md:text-lg text-text-muted">
+          <div className="text-center pt-8 pb-12">
+            <p className="mx-auto max-w-2xl text-lg font-bold leading-relaxed md:text-xl text-text-muted">
               准备好开始制作你的像素表情包了吗，直接进入创作工作台吧！
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link className="btn-hero btn-hero-pink" href="/create">
                 进入创作工作台
               </Link>
