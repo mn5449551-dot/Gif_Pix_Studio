@@ -93,11 +93,10 @@ export function PetWidget() {
 
   return (
     <div
-      className={`pointer-events-none fixed z-[90] flex max-w-[92vw] flex-col-reverse items-end gap-3 ${
-        densePage
+      className={`pointer-events-none fixed z-[90] flex max-w-[92vw] flex-col-reverse items-end gap-3 ${densePage
           ? "bottom-20 right-2 lg:bottom-3 lg:right-3 lg:left-auto"
           : "bottom-20 right-2 lg:bottom-6 lg:right-6 lg:left-auto"
-      }`}
+        }`}
     >
       {!collapsed && bubbleOpen && (
         <div className="pointer-events-auto">
@@ -137,11 +136,10 @@ export function PetWidget() {
           <AssetImage
             src={petAsset}
             alt={`Pet ${displayMood}`}
-            className={`object-contain pixelated !border-0 !bg-transparent shadow-none ${
-              densePage
-                ? "h-14 w-14 md:h-24 md:w-24 lg:h-28 lg:w-28"
-                : "h-14 w-14 md:h-28 md:w-28"
-            }`}
+            className={`object-contain pixelated !border-0 !bg-transparent drop-shadow-[5px_5px_0_rgba(255,77,141,0.4)] hover:drop-shadow-[8px_8px_0_rgba(77,208,255,0.6)] hover:scale-110 transition-all duration-200 ${densePage
+                ? "h-16 w-16 md:h-28 md:w-28 lg:h-32 lg:w-32"
+                : "h-16 w-16 md:h-32 md:w-32 lg:h-40 lg:w-40"
+              }`}
             fallbackClassName="asset-fallback-md"
           />
         </button>
